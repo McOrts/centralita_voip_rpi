@@ -204,7 +204,7 @@ Por parte del servidor FreePBX tenemos un _dashboard_ muy completo con la inform
 
 <img src="./img/freepbx_db2.png" width=500 align="center" />
 
-<img src="./img/zoiper_call.png" width=100 align="left" />
+<img src="./img/zoiper_dial.png" width=100 align="left" />
 
 En este punto ya podemos hacer una llamada. Por ejemplo, desde la aplicación del smartphone donde tenemos configurada la terminal 102, vamos a llamar al número 101 que es el _shoftphone_ en un ordenador portátil. 
 <img src="./img/zoiper_running.png" width=100 align="right" />
