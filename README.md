@@ -50,11 +50,11 @@ El Punto de Acceso wifi se ha montado para suplir la carencia de conectividad Wi
 <img src="./img/rpi_console.png" width=500 align="center" />
 
 7. Aquí hay dos opciones de configuración para la conexión a red:
-  a. Por cable. No hay que nacer nada. Ya que obtendrá su IP del servidor DHCP. Pero tendremos que averiguar la IP asignada. Se puede utilizar el comando: ifconfig
-  b. O podemos configurar la Wifi manualmente con una IP fija (asegurarse que está libre para que no haya conflictos):
-    1. Ingrese el siguiente comando para configurar WiFi escribiendo una configuración de este tipo
-    2. _sudo nano /etc/network/interfaces_
-      ```hash
+ * Por cable. No hay que nacer nada. Ya que obtendrá su IP del servidor DHCP. Pero tendremos que averiguar la IP asignada. Se puede utilizar el comando: ifconfig
+ * O podemos configurar la Wifi manualmente con una IP fija (asegurarse que está libre para que no haya conflictos):
+  1. Ingrese el siguiente comando para configurar WiFi escribiendo una configuración de este tipo
+  2. _sudo nano /etc/network/interfaces_
+```hash
       auto wlan0
       allow-hotplug wlan0
       iface wlan0 inet static
@@ -62,10 +62,10 @@ El Punto de Acceso wifi se ha montado para suplir la carencia de conectividad Wi
       netmask 255.255.255.0
       gateway 192.168.1.1
       wpa-conf /etc/wpa\_supplicant/wpa\_supplicant.conf
-      ```
-    3. Ctrl-X, luego escriba Y para salir y guardar
-    4. Ingrese el siguiente comando:
-    5. _sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf_
+```
+  3. Ctrl-X, luego escriba Y para salir y guardar
+  4. Ingrese el siguiente comando:
+  5. _sudo nano /etc/wpa\_supplicant/wpa\_supplicant.conf_
       ```xml
       network={
       ssid="YOUR\_NETWORK\_NAME"
@@ -76,12 +76,13 @@ El Punto de Acceso wifi se ha montado para suplir la carencia de conectividad Wi
       auth\_alg=OPEN
       }
       ```
-    6. Ctrl-X, luego escriba Y para salir y guardar
-    7. Escriba reiniciar y presione enter para reiniciar raspberry pi
-    8. Una vez logueado en el sistema con el usuario **root** y la password elegida. Tecleamos el siguiente comando para ver qué conectividad tenemos y la IP asignada:
-    9. _ifconfig_
+  6. Ctrl-X, luego escriba Y para salir y guardar
+  7. Escriba reiniciar y presione enter para reiniciar raspberry pi
+  8. Una vez logueado en el sistema con el usuario **root** y la password elegida. Tecleamos el siguiente comando para ver qué conectividad tenemos y la IP asignada:
+  9. _ifconfig_
 <img src="./img/ifconfig.png" width=500 align="center" />
 
+---
 8. Ahora ya podemos entrar en la aplicación FreePBX: desde nuestro navegador favorito sencillamente poniendo la dirección de la IP de la RPI, que en nuestro caso es 192.168.1.119.
 9. En el primer acceso se nos va a pedir el usuario y contraseña del administrador. Así como una dirección de mail:
 
@@ -91,15 +92,15 @@ El Punto de Acceso wifi se ha montado para suplir la carencia de conectividad Wi
 
 <img src="./img/freepbx_admin.png" width=500 align="center" />
 
-1. Escribimos el nombre de usuario (admin) y la contraseña que se creó en el paso anterior.
-2. Hacemos clic en Continuar
+11. Escribimos el nombre de usuario (admin) y la contraseña que se creó en el paso anterior.
+12. Hacemos clic en Continuar
 
 <img src="./img/freepbx_login.png" width=500 align="center" />
 
 13. Seleccionamos las siguientes configuraciones:
-  q. **Idioma del mensaje** de sonido: seleccionamos el idioma del mensaje en el menú desplegable
-  b. **Idioma del sistema** : seleccionamos el idioma del sistema en el menú desplegable
-  c. **Zona horaria** : seleccionamos la zona horaria adecuada
+  * **Idioma del mensaje** de sonido: seleccionamos el idioma del mensaje en el menú desplegable
+  * **Idioma del sistema** : seleccionamos el idioma del sistema en el menú desplegable
+  * **Zona horaria** : seleccionamos la zona horaria adecuada
 14. Hacemos clic en Enviar
 
 <img src="./img/freepbx_conf.png" width=500 align="center" />
@@ -154,12 +155,12 @@ La configuración tendremos que hacerla tanto en FreePBX añadiendo una nueva ex
 En cualquier caso tendremos que seguir estos pasos de configuración:
 
 1. Selecciona el menú desplegable "Cuentas"> Selecciona "Cuenta 1"> Selecciona "Configuración general"
-  a. "Nombre de cuenta" debe ser la extensión que se creó en FreePBX
-  b. "Servidor" será la IP
-  c. El "ID de usuario SIP" es el número de extensión
-  d. El "ID de autenticación" es el número de extensión
-  e. Pegue la clave secreta de FreePBX en el cuadro de texto "Autenticar contraseña"
-  f. "Nombre" puede ser lo que se quiera. P.e. "TestPhone"
+  * "Nombre de cuenta" debe ser la extensión que se creó en FreePBX
+  * "Servidor" será la IP
+  * El "ID de usuario SIP" es el número de extensión
+  * El "ID de autenticación" es el número de extensión
+  * Pegue la clave secreta de FreePBX en el cuadro de texto "Autenticar contraseña"
+  * "Nombre" puede ser lo que se quiera. P.e. "TestPhone"
 2. Vuelva a la administración de Grandstream> Selecciona: "Cuenta 1"> Seleccione "Configuración general"
 3. Poner la dirección IP del paso anterior en el campo de texto "Servidor SIP"
 4. Hacer clic en "Guardar" para aplicar los cambios de configuración.
